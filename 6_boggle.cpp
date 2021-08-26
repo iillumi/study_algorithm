@@ -15,12 +15,12 @@ int main () {
                 for (int j=0;j<5;j++){
                         result=hasWord(i,j,word);
                         if(result==true) {
-                                printf("exist\n");
+                                cout << "exist\n";
                                 return 0;
                         }
                 }
         }
-        printf("not exist\n");
+	cout << "not exist\n";
         return 0;
 }
 
@@ -36,4 +36,3 @@ bool hasWord(int y, int x, string word){
         }
         return false;
 }
-
