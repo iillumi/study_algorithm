@@ -4,23 +4,28 @@ using namespace std;
 
 int dx[8]={0,0,-1,-1,-1,1,1,1}; // 8방향을 탐색하기 위한 배열
 int dy[8]={1,-1,1,0,-1,1,0,-1};
-char arry[5][5]={'u','r','l','p','m','x','p','r','e','t','g','i','a','e','t','x','t','n','z','y','x','o','q','r','s'}; // 5x5형태의 기본 배열
+char arry[5][5]={0,}; // 5x5형태의 기본 배열
 
 bool hasWord(int, int, string); 
+bool startarea(string);
 
 int main () {
-        string word="pretty"; // 배열에서 찾을 단어
-        bool result;
-        for(int i=0;i<5;i++) { // 시작을 0,0부터 4,4까지 조정
-                for (int j=0;j<5;j++){
-                        result=hasWord(i,j,word);
-                        if(result==true) {
-                                cout << "exist\n";
-                                return 0;
-                        }
-                }
-        }
-	cout << "not exist\n";
+	int c,n; // testcase와 찾을 단어의 수
+	string word; // 배열에서 찾을 단어
+	cin >> c;
+	for(int k=0;k<c;k++) {
+		for(int i=0;i<5;i++) {
+                	cin>>arry[i];
+	        }
+		cin >> n;
+		for(int i=0;i<n;i++) {
+			cin >> word;
+       	        	bool result;
+			result=startarea(word);
+			if(result == true) cout << word << " " << "YES\n";
+			else cout << word << " " << "NO\n";
+		}
+	}
         return 0;
 }
 
@@ -35,4 +40,13 @@ bool hasWord(int y, int x, string word){ // 재귀 이용
                 if(hasWord(nextY, nextX, word.substr(1))==true) return true;
         }
         return false;
+}
+
+bool startarea(string word){
+	for(int i=0;i<5;i++) { // 시작을 0,0부터 4,4까지 조정
+		for (int j=0;j<5;j++){
+        		if(hasWord(i,j,word) == true) return true;
+		}
+	}
+	return false;
 }
