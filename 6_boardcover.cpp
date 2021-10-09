@@ -33,7 +33,7 @@ int main () {
 
 bool ableBoard(char arry[][20], int y, int x, int h, int w, int type){
 	int dy,dx;
-	for (int i=0;i<3;i++) { // block에 대해 확인한다
+	for (int i=0;i<3;i++) { // block에 대해 확인
 		dx=x+block[type][i][1];
 		dy=y+block[type][i][0];
 		if(dy<0||dx<0||dx>=w||dy>=h) return false; // board의 범위를 벗어날 때
@@ -44,7 +44,7 @@ bool ableBoard(char arry[][20], int y, int x, int h, int w, int type){
 
 bool SetBoard(char arry[][20], int y, int x, char index, int type){
 	int dx,dy;
-	for (int i=0;i<3;i++) { // index로 board를 덮는다
+	for (int i=0;i<3;i++) { // index로 board를 덮음
 		dx=x+block[type][i][1];
 		dy=y+block[type][i][0];
 		arry[dy][dx]=index;
