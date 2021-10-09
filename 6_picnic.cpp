@@ -35,8 +35,7 @@ int SetPair(){
 	}
 	if(finish==-1) return 1; // 모두 짝이 생기면 1가지 case 생성
 
-	for(int i=finish+1;i<n;i++) {
-		// 학생이 짝이 없고 친구일 때 짝 생성
+	for(int i=finish+1;i<n;i++) { // 짝이 없고 친구일 때 짝 생성
 		if(pairarry[i]==0 && (arry[finish][i]==1 || arry[i][finish]==1)){
 			pairarry[finish]=1;
 			pairarry[i]=1;
