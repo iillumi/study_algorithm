@@ -37,7 +37,7 @@ int findcase(int *arry, int NumSwitch){
 	if(NumSwitch==10) return checkclock(arry) ? 0 : INF; // 10번 스위치까지 누르면 종료
 	int ret=INF;
 	for(int i=0;i<4;i++) { // 스위치를 4번 누르는 경우 수행 (4번 누르면 원래시간으로 복귀)
-		ret=min(ret,i+findcase(arry, NumSwitch+1));
+		ret=min(ret,i+findcase(arry, NumSwitch+1)); // 12시로 만드는 최소값 반환
 		for(int j=0;j<16;j++) { // 각각의 버튼에 연결된 시계의 시간 +3
 			if(linkedclock[NumSwitch][j]=='X'){
 				arry[j]+=3;
